@@ -1,0 +1,100 @@
+/* COMMON */
+
+:root {
+  --generalColor : rgb(24, 0, 43);
+  --textColor : rgb(202, 146, 252);
+}
+
+*{
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+html, body, #fullheight {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+button{
+  background-color: var(--generalColor);
+  color: var(--textColor);
+  cursor: pointer;
+  border: none;
+}
+.brand{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/*  NAVBAR  */
+.nav-container{
+  width: 100%;
+  height: 10vh;
+  background-color: var(--generalColor);
+  display: flex;
+  align-items:  center;
+  padding-left: 5rem;
+  border-bottom: 1px solid rgb(154, 255, 114);
+}
+.nav-container button {
+  margin-right: 2rem;
+}
+
+/* DASHBOARD */
+.dashboard-container{
+  width: 100%;
+  min-height: 90vh;
+  background-color:rgb(46, 17, 71);
+  padding: 5rem 5rem 0 5rem ;
+
+}
+.activity-list-container{
+  min-height: 75vh;
+}
+.activity-item{
+  width: 100%;
+  height: 12.5rem;
+  border-bottom: 1px solid rgb(154, 255, 114);
+  background-color: var(--generalColor);
+  color: var(--textColor);
+  padding: 1rem 2rem;
+}
+.activity-item p {
+  margin: 0;
+}
+.activity-header{
+  margin-bottom: .25rem;
+  color: var(--textColor);
+}
+.activity-header p{
+    color: rgb(142, 142, 142);
+    font-size: .9rem;
+}
+.activity-header h3{
+  margin: 0;
+}
+.activity-button{
+  float: right;
+}
+.activity-category, .activity-button{
+  padding: .5rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: .25rem;
+  background-color: var(--textColor);
+}
