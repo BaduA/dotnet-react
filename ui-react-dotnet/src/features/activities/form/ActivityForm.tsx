@@ -5,13 +5,15 @@ import { Activity } from "../../../app/models/activity";
 interface Props {
   activity: Activity | undefined;
   closeForm: () => void;
-  createOrEdit:(activity:Activity) =>void;
+  createOrEdit: (activity: Activity) => void;
+  submitting: boolean;
 }
 
 export default function ActivityForm({
   activity: selectedActivity,
   closeForm,
-  createOrEdit
+  createOrEdit,
+  submitting,
 }: Props) {
   const initialState = selectedActivity ?? {
     id: "",
@@ -26,12 +28,14 @@ export default function ActivityForm({
   const [activity, setActivity] = useState(initialState);
 
   function handleSubmit() {
-    createOrEdit(activity )
+    createOrEdit(activity);
   }
 
-  function handleInputChange(e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    const {name,value} = e.target;
-    setActivity({...activity, [name]:value})
+  function handleInputChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    setActivity({ ...activity, [name]: value });
   }
 
   return (
@@ -48,37 +52,34 @@ export default function ActivityForm({
           value={activity.description}
           name="description"
           onChange={handleInputChange}
-
         ></Form.TextArea>
         <Form.Input
           placeholder="Category"
           value={activity.category}
           name="category"
           onChange={handleInputChange}
-
         ></Form.Input>
         <Form.Input
+          type="date"
           placeholder="Date"
           value={activity.date}
           name="date"
           onChange={handleInputChange}
-
         ></Form.Input>
         <Form.Input
           placeholder="City"
           value={activity.city}
           name="city"
           onChange={handleInputChange}
-
         ></Form.Input>
         <Form.Input
           placeholder="Venue"
           value={activity.venue}
           name="venue"
           onChange={handleInputChange}
-
         ></Form.Input>
         <Button
+          loading={submitting}
           floated="right"
           positive
           type="submit"
@@ -87,7 +88,7 @@ export default function ActivityForm({
         <Button
           onClick={closeForm}
           floated="right"
-          type="submit"
+          type="button"
           content="Cancel"
         ></Button>
       </Form>
