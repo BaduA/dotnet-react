@@ -1,14 +1,13 @@
 import React from "react";
-import { useStore } from "../stores/store";
+import { NavLink } from "react-router-dom";
 
 
 export default function Navbar() {
-    const {activityStore} = useStore()
     return (
         <div className="nav-container">
-            <button className="brand">PNGHUB Demo</button>
-            <button>Activities</button>
-            <button onClick={() => activityStore.openForm()}>Create Activity</button>
+            <NavLink className="brand" to="/">PNGHUB Demo</NavLink>
+            <NavLink to="/activities">Activities</NavLink>
+            <NavLink to="/createactivity">Create Activity</NavLink>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 
@@ -39,12 +40,13 @@ export default observer(function ActivityList() {
             >
               Delete
             </Button>
-            <button
-              onClick={() => activityStore.selectActivity(activity.id)}
+            <Button
+               as={Link}
+               to={`/activities/${activity.id}`}
               className="activity-button"
             >
               View
-            </button>
+            </Button>
           </div>
         </div>
       ))}

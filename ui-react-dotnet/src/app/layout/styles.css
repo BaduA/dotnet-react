@@ -33,6 +33,11 @@ button{
   cursor: pointer;
   border: none;
 }
+a{
+  padding: 2rem;
+  color: var(--textColor) !important;
+  text-decoration: none;
+}
 .brand{
   font-size: 1.3rem;
   font-weight: bold;
