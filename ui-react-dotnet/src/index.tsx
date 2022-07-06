@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./app/layout/styles.css";
 import "react-calendar/dist/Calendar.css"
+import "react-toastify/dist/ReactToastify.min.css"
 import App from "./app/layout/App";
 import reportWebVitals from "./reportWebVitals";
 import { store, StoreContxt } from "./app/stores/store";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
+
+export const navigationRef = React.createRef();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -7,6 +7,7 @@ export default function Navbar() {
         <div className="nav-container">
             <NavLink className="brand" to="/">PNGHUB Demo</NavLink>
             <NavLink to="/activities">Activities</NavLink>
+            <NavLink to="/errors">Errors</NavLink>
             <NavLink to="/createactivity">Create Activity</NavLink>
         </div>
     )
