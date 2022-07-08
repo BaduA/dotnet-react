@@ -10,7 +10,7 @@ export default function NotFound(){
                 Oops - not found
             </Header>
             <Segment.Inline>
-                <Button as={Link} to="/activites"primary>to Activites</Button>
+                <Button as={Link} to="/activities"primary>to Activites</Button>
             </Segment.Inline>
         </Segment>
     )

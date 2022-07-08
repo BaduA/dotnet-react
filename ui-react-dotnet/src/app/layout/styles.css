@@ -82,11 +82,18 @@ a{
   background-color: var(--generalColor);
   display: flex;
   align-items:  center;
-  padding-left: 5rem;
+  padding: 0 5rem;
   border-bottom: 1px solid rgb(154, 255, 114);
 }
 .nav-container button {
   margin-right: 2rem;
+}
+.dropdown{
+  color: white;
+
+}
+.userProfileLogo{
+  margin-left: auto;
 }
 
 /* DASHBOARD */
@@ -135,3 +142,4 @@ a{
   margin-top: .25rem;
   background-color: var(--textColor);
 }
+

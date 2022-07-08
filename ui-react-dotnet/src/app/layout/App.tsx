@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import { observer } from "mobx-react-lite";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -11,6 +11,10 @@ import { ToastContainer } from "react-toastify";
 import NotFound from "../../features/errors/NotFound";
 import { AxiosInterceptorsSetup } from "../api/agent";
 import ServerError from "../../features/errors/ServerError";
+import LoginForm from "../../features/users/LoginForm";
+import { useStore } from "../stores/store";
+import LoadingComponent from "./LoadingComponents";
+import ModalContainer from "../common/modals/ModalContainer";
 
 
 function AxiosInterceptorNavigate() {
@@ -20,10 +24,21 @@ function AxiosInterceptorNavigate() {
 }
 
 function App() {
+  const {commonStore, userStore}  = useStore();
+
+  useEffect(()=> {
+    if(commonStore.token){
+      userStore.getUser().finally(()=> commonStore.setAppLoaded())
+    }else{
+      commonStore.setAppLoaded();
+    }
+  },[commonStore,userStore])
+  if(!commonStore.appLoaded) return <LoadingComponent content="Loading"></LoadingComponent>
   return (
     <Fragment>
       {<AxiosInterceptorNavigate></AxiosInterceptorNavigate>}
       <ToastContainer position="bottom-right" hideProgressBar></ToastContainer>
+      <ModalContainer></ModalContainer>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route element={<AppLayout admin={true}></AppLayout>}>
@@ -33,6 +48,7 @@ function App() {
             <Route key="2" path="/manage/:id" element={<ActivityForm />} />
             <Route path="/errors" element={<TestErrors />} />
             <Route path="/server-error" element={<ServerError />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>
